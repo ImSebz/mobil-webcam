@@ -38,7 +38,10 @@ body {
     font-size: 5rem;
     margin-bottom: 10%;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
+
+
 
 .menu-item:nth-child(7) {
     margin-left: auto;

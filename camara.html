@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/menus.css">
+    <title>Camara</title>
+</head>
+<body>
+    <div class="camara-container" id="camara-container">
+        <video id="video" width="640" height="480" autoplay></video>
+        <img id="overlay" style="position: absolute; top: 0; left: 0; width: 640px; height: 480px;">
+        <button id="capture">Capture</button>
+        <canvas id="canvas" width="1080" height="1920" style="display: none;"></canvas>
+    </div>
+
+    <script src="js/camara.js"></script>
+</body>
+</html>
