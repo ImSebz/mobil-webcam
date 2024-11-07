@@ -59,8 +59,15 @@ body {
 
 .video-wrapper {
     position: relative;
-    width: 640px;
-    height: 480px;
+    width: 756px; /* Adjusted width */
+    height: 1344px; /* Adjusted height */
+    overflow: hidden;
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #overlay {

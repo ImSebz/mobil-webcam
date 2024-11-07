@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startCamera() {
-        navigator.mediaDevices.getUserMedia({ video: true })
+        navigator.mediaDevices.getUserMedia({ video: { width: 756, height: 1344 } })
             .then(stream => {
                 video.srcObject = stream;
                 video.play();
@@ -24,7 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     captureButton.addEventListener('click', () => {
         const context = canvas.getContext('2d');
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        // Calculate the scaling and cropping
+        const scale = Math.max(canvas.width / video.videoWidth, canvas.height / video.videoHeight);
+        const x = (canvas.width / 2) - (video.videoWidth / 2) * scale;
+        const y = (canvas.height / 2) - (video.videoHeight / 2) * scale;
+        
+        context.drawImage(video, x, y, video.videoWidth * scale, video.videoHeight * scale);
         
         // Calculate the scaled dimensions for the overlay
         const overlayWidth = canvas.width * 0.5;
