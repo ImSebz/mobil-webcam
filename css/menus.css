@@ -39,7 +39,7 @@ body {
     margin-bottom: 10%;
     text-decoration: none;
     text-align: center;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent; /* Eliminar el contorno azul en dispositivos móviles */
 }
 
 .menu-item:nth-child(7) {
@@ -55,4 +55,18 @@ body {
     height: 100vh;
     background-color: #000;
     position: relative;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 640px;
+    height: 480px;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: auto;
 }

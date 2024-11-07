@@ -8,10 +8,13 @@
 </head>
 <body>
     <div class="camara-container" id="camara-container">
-        <video id="video" width="640" height="480" autoplay></video>
-        <img id="overlay" style="position: absolute; top: 0; left: 0; width: 640px; height: 480px;">
+        <div class="video-wrapper">
+            <video id="video" width="640" height="480" autoplay></video>
+            <img id="overlay">
+        </div>
         <button id="capture">Capture</button>
-        <canvas id="canvas" width="1080" height="1920" style="display: none;"></canvas>
+        <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+        <img id="captured-image" style="display: none; margin-top: 20px;">
     </div>
 
     <script src="js/camara.js"></script>

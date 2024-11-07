@@ -5,29 +5,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('canvas');
     const captureButton = document.getElementById('capture');
     const overlay = document.getElementById('overlay');
+    const capturedImage = document.getElementById('captured-image');
 
     if (overlaySrc) {
         overlay.src = `assets/${overlaySrc}`;
     }
 
-    function startCamara() {
+    function startCamera() {
         navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
                 video.srcObject = stream;
                 video.play();
             })
             .catch(err => {
-                console.error("Error accessing the camara: ", err);
+                console.error("Error accessing the camera: ", err);
             });
     }
 
     captureButton.addEventListener('click', () => {
         const context = canvas.getContext('2d');
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        context.drawImage(overlay, 0, 0, canvas.width, canvas.height);
+        
+        // Calculate the scaled dimensions for the overlay
+        const overlayWidth = canvas.width * 0.5;
+        const overlayHeight = overlay.naturalHeight * (overlayWidth / overlay.naturalWidth);
+        
+        context.drawImage(overlay, 0, 0, overlayWidth, overlayHeight);
+        
         const dataURL = canvas.toDataURL('image/png');
-        console.log(dataURL); // You can use this data URL to save the image or display it
+        capturedImage.src = dataURL;
+        capturedImage.style.display = 'block';
     });
 
-    startCamara();
+    startCamera();
 });
