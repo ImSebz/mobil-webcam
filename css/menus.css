@@ -59,8 +59,8 @@ body {
 
 .video-wrapper {
     position: relative;
-    width: 756px; /* Adjusted width */
-    height: 1344px; /* Adjusted height */
+    width: 756px;
+    height: 1344px;
     overflow: hidden;
 }
 
@@ -72,8 +72,8 @@ body {
 
 #overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
     height: auto;
 }
